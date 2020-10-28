@@ -37,7 +37,7 @@ jobs:
 
       - name: Build image
         run: |
-          cd core_ui && docker build . -t core_ui
+          cd core-ui && docker build . -t core_ui
           # echo $IMAGE_NAME
       - name: Log into registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
