@@ -19,7 +19,7 @@ jobs:
       - name: Log into registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
 
-      - name: check modify packaghe.json
+      - name: Check modify
         run: |
           chmod +x deploy.sh
           ./deploy.sh
