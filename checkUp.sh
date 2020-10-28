@@ -11,6 +11,7 @@ if [ $? != 0 ]; then
 fi 
 
 ## Check update package API
+cd ..
 diff ./api/package.json ./core-api/package.json
 if [ $? != 0 ]; then
     cd core-api

@@ -11,7 +11,7 @@ env:
   IMAGE_NAME: image
 
 jobs:
-  deploy:
+  Deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -21,22 +21,20 @@ jobs:
 
       - name: check modify packaghe.json
         run: |
-          # chmod +x deploy.sh
-          # ./deploy.sh
-          ls
-          pwd
+          chmod +x deploy.sh
+          ./deploy.sh
 
-      # - name: Build image
-      #   run: docker-compose -p todo build
+      - name: Build image
+        run: docker-compose -p todo build
 
-      # - name: Push image
-      #   run: |
-      #     VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
-      #     [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
-      #     [ "$VERSION" == "master" ] && VERSION=latest
+      - name: Push image
+        run: |
+          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
+          [ "$VERSION" == "master" ] && VERSION=latest
           
-      #     docker tag todo_ui docker.pkg.github.com/kaitoryouga/todo/todo_ui:$VERSION
-      #     docker push docker.pkg.github.com/kaitoryouga/todo/todo_ui:$VERSION
+          docker tag todo_ui docker.pkg.github.com/kaitoryouga/todo/todo_ui:$VERSION
+          docker push docker.pkg.github.com/kaitoryouga/todo/todo_ui:$VERSION
 
-      #     docker tag todo_api docker.pkg.github.com/kaitoryouga/todo/todo_api:$VERSION
-      #     docker push docker.pkg.github.com/kaitoryouga/todo/todo_api:$VERSION
+          docker tag todo_api docker.pkg.github.com/kaitoryouga/todo/todo_api:$VERSION
+          docker push docker.pkg.github.com/kaitoryouga/todo/todo_api:$VERSION
