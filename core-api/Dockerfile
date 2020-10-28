@@ -1,7 +1,5 @@
-FROM node:12.2.0-alpine
+FROM docker.pkg.github.com/kaitoryouga/todo/core_api:1.0.0
 WORKDIR /app/api
-
-COPY . .
-
-# EXPOSE 8080
-# CMD [ "npm", "start" ]
+RUN rm -f package.json
+COPY package.json .
+CMD npm install --silent

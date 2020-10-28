@@ -9,7 +9,7 @@ services:
   api:
     build: ./api
     ports:
-      - '3080:3080'
+      - '8080:8080'
     depends_on:
       - db
   db:
