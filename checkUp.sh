@@ -14,7 +14,7 @@ if [ $? != 0 ]; then
 fi 
 
 ## Check update package API
-cd ..
+cd /home/runner/work/Todo/Todo
 diff ./api/package.json ./core-api/package.json
 if [ $? != 0 ]; then
     cd core-api
