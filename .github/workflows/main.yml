@@ -33,6 +33,3 @@ jobs:
 
           docker tag todo_api docker.pkg.github.com/kaitoryouga/todo/todo_api:$VERSION
           docker push docker.pkg.github.com/kaitoryouga/todo/todo_api:$VERSION
-
-          docker tag todo_db docker.pkg.github.com/kaitoryouga/todo/todo_db:$VERSION
-          docker push docker.pkg.github.com/kaitoryouga/todo/todo_db:$VERSION
