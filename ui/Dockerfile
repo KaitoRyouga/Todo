@@ -15,7 +15,7 @@
 # CMD ["nginx", "-g", "daemon off;"]
 
 # dev environment
-FROM core_ui
+FROM docker.pkg.github.com/kaitoryouga/todo/core_ui
 WORKDIR /app/ui
 RUN rm -Rf ./src
 COPY /src .
