@@ -8,9 +8,6 @@ if [ $? != 0 ]; then
 
     rm -f package.json
     cp ../ui/package.json .
-    git add .
-    git commit -m "change file"
-    git push origin master
 fi 
 
 ## Check update package API
