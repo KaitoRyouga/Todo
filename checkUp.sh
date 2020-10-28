@@ -6,6 +6,9 @@ if [ $? != 0 ]; then
     docker tag core_ui docker.pkg.github.com/kaitoryouga/todo/core_ui:1.0.0
     echo "${{ secrets.GITHUB_TOKEN }}" | docker login https://docker.pkg.github.com -u kaitoryouga --password-stdin
     docker push docker.pkg.github.com/kaitoryouga/todo/core_ui:1.0.0
+
+    rm -f package.json
+    cp ../ui/package.json .
 fi 
 
 ## Check update package API
@@ -16,4 +19,7 @@ if [ $? != 0 ]; then
     docker tag core_api docker.pkg.github.com/kaitoryouga/todo/core_api:1.0.0
     echo "${{ secrets.GITHUB_TOKEN }}" | docker login https://docker.pkg.github.com -u kaitoryouga --password-stdin
     docker push docker.pkg.github.com/kaitoryouga/todo/core_api:1.0.0
+
+    rm -f package.json
+    cp ../api/package.json .
 fi 
