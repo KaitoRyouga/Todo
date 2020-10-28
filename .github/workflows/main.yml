@@ -37,7 +37,7 @@ jobs:
 
       - name: Build image
         run: |
-          docker-compose up -d --build
+          cd core_ui && docker build . -t core_ui
           # echo $IMAGE_NAME
       - name: Log into registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
@@ -50,3 +50,5 @@ jobs:
           docker ps -a
           docker images
           echo $VERSION
+          docker tag core_ui docker.pkg.github.com/kaitoryouga/todo/core_ui:$VERSION
+          docker push docker.pkg.github.com/kaitoryouga/todo/core_ui:$VERSION
