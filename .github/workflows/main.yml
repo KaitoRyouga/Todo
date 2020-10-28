@@ -23,6 +23,16 @@ jobs:
         run: |
           chmod +x deploy.sh
           ./deploy.sh
+      
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v5
+        with:
+          author_name: kaitoryouga
+          author_email: kaito1477800@gmail.com
+          message: "change file package.json"
+          add: "*.js"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build image
         run: docker-compose -p todo build
@@ -30,7 +40,7 @@ jobs:
       - name: Push image
         run: |
           VERSION=latest
-          
+
           docker tag todo_ui docker.pkg.github.com/kaitoryouga/todo/todo_ui:$VERSION
           docker push docker.pkg.github.com/kaitoryouga/todo/todo_ui:$VERSION
 
