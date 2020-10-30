@@ -14,10 +14,15 @@
 # EXPOSE 80
 # CMD ["nginx", "-g", "daemon off;"]
 
+## build core
+# FROM node:12.2.0-alpine
+# WORKDIR /app/ui
+# COPY . .
+
 # dev environment
 FROM docker.pkg.github.com/kaitoryouga/todo/core_ui:1.0.0
 WORKDIR /app/ui
-RUN rm -Rf ./src
-COPY /src .
+RUN rm -Rf ./src && mkdir src
+COPY ./src ./src
 EXPOSE 3000
-CMD ["npm", "start"]
+CMD ["yarn", "start"]

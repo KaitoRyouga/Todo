@@ -8,12 +8,12 @@ app1.disable("x-powered-by");
 let helmet = require("helmet");
 let app = express();
 app.use(helmet.hidePoweredBy());
-const port = 3080;
+const port = 8080;
 
 const cors = require('cors');
 app.use(cors());
 
-const users = [1,2,3,4,5];
+const users = [1,2,3,4,5,6,7];
 
 app.use(bodyParser.json());
 // production
