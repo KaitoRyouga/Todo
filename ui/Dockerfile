@@ -15,14 +15,21 @@
 # CMD ["nginx", "-g", "daemon off;"]
 
 ## build core
-# FROM node:12.2.0-alpine
-# WORKDIR /app/ui
-# COPY . .
+FROM node:12.2.0-alpine
+WORKDIR /app/ui
+COPY package*.json ./
+RUN npm install --silent
+COPY ./ ./
+
+EXPOSE 3000
+CMD ["npm", "start"]
 
 # dev environment
-FROM docker.pkg.github.com/kaitoryouga/todo/core_ui:1.0.0
-WORKDIR /app/ui
-RUN rm -Rf ./src && mkdir src
-COPY ./src ./src
-EXPOSE 3000
-CMD ["yarn", "start"]
+# FROM docker.pkg.github.com/kaitoryouga/todo/core_ui:latest
+# WORKDIR /app/ui
+
+# # RUN rm -Rf ./src && mkdir src
+# # ADD ./src ./src
+# RUN cat ./src/index.js
+# EXPOSE 3000
+# ENTRYPOINT ["npm", "start"]

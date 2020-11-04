@@ -19,21 +19,6 @@ jobs:
       - name: Log into registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
 
-      - name: Check modify
-        run: |
-          chmod +x deploy.sh
-          ./deploy.sh
-      
-      - name: Commit changes
-        uses: EndBug/add-and-commit@v5
-        with:
-          author_name: kaitoryouga
-          author_email: kaito1477800@gmail.com
-          message: "change file package.json"
-          add: "*.js"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Build image
         run: docker-compose -p todo build
 

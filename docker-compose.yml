@@ -6,13 +6,13 @@ services:
     ports:
       - '3000:3000'
     volumes: 
-      - C:\Users\kaito\Desktop\todo\ui\src:/app/ui/src
+      - C:\Users\kaito\Desktop\pr\todo\ui\src:/app/ui/src
     depends_on:
       - api
   api:
     build: ./api
     volumes: 
-      - C:\Users\kaito\Desktop\todo\api\code:/app/api/code
+      - C:\Users\kaito\Desktop\pr\todo\api\code:/app/api/code
     ports:
       - '8080:8080'
     depends_on:
