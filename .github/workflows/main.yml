@@ -20,7 +20,7 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
 
       - name: Build image
-        run: docker-compose -p todo build
+        run: docker-compose -f docker-compose.production.yml -p todo build
 
       - name: Push image
         run: |
