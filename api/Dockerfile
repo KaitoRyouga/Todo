@@ -16,7 +16,7 @@
 ## dev enviroment
 # FROM docker.pkg.github.com/kaitoryouga/todo/core_api:latest
 FROM node:12.2.0-alpine
-WORKDIR /usr//src/app/api
+WORKDIR /usr/src/app/api
 COPY package*.json ./
 RUN npm install --silent
 COPY ./ ./
