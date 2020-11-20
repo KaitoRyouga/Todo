@@ -16,10 +16,12 @@
 
 ## build core
 FROM node:12.2.0-alpine
-WORKDIR /app/ui
+WORKDIR /usr//src/app/ui
 COPY package*.json ./
 RUN npm install --silent
 COPY ./ ./
+
+RUN chmod +x ./node_modules/.bin/react-scripts
 
 EXPOSE 3000
 CMD ["npm", "start"]

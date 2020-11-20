@@ -2,6 +2,7 @@ version: '3'
 
 services:
   ui:
+    restart: always
     build: 
       context: ./ui
       dockerfile: Dockerfile.production 
@@ -12,6 +13,7 @@ services:
     depends_on:
       - api
   api:
+    restart: always
     build:
       context: ./api
       dockerfile: Dockerfile.production 
@@ -22,6 +24,7 @@ services:
     depends_on:
       - db
   db:
+    restart: always
     image: mongo
     ports:
       - '27017:27017'
