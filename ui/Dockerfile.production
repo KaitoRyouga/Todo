@@ -2,11 +2,11 @@
 FROM node:12.2.0-alpine as build
 WORKDIR /app/ui 
 # ENV PATH /app/ui/node_modules/.bin:$PATH
-COPY package*.json ./
-RUN npm install --silent
-RUN npm install react-scripts@4.0.0 -g --silent
+COPY *.json ./
+RUN yarn
+# RUN npm install react-scripts@4.0.0 -g --silent
 COPY ./ ./
-RUN npm run build
+RUN yarn run build
 
 # # production environment
 FROM nginx:1.16.0-alpine

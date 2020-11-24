@@ -17,14 +17,14 @@
 ## build core
 FROM node:12.2.0-alpine
 WORKDIR /usr/src/app/ui
-COPY package*.json ./
+COPY *.json ./
 RUN yarn
 COPY ./ ./
 
 RUN chmod +x ./node_modules/.bin/react-scripts
 
 EXPOSE 3000
-CMD ["npm", "start"]
+CMD ["yarn", "start"]
 
 # dev environment
 # FROM docker.pkg.github.com/kaitoryouga/todo/core_ui:latest
