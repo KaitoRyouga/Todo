@@ -24,4 +24,4 @@ COPY ./ ./
 # COPY ./code ./code
 
 EXPOSE 8080
-CMD [ "npm", "run", "start" ]
+CMD [ "yarn", "run", "start" ]
