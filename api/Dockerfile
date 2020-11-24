@@ -18,7 +18,7 @@
 FROM node:12.2.0-alpine
 WORKDIR /usr/src/app/api
 COPY package*.json ./
-RUN npm install --silent
+RUN yarn
 COPY ./ ./
 # RUN rm -Rf ./code && mkdir code
 # COPY ./code ./code

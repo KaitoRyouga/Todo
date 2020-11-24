@@ -18,7 +18,7 @@
 FROM node:12.2.0-alpine
 WORKDIR /usr/src/app/ui
 COPY package*.json ./
-RUN npm install --silent
+RUN yarn
 COPY ./ ./
 
 RUN chmod +x ./node_modules/.bin/react-scripts
